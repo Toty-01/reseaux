@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "state";
 import PostWidget from "./PostWidget";
+import "./style.css"
 
 const PostsWidget = ({ userId, isProfile = false }) => {
   const dispatch = useDispatch();
@@ -39,7 +40,8 @@ const PostsWidget = ({ userId, isProfile = false }) => {
 
   return (
     <>
-      {posts.map(
+    <div className="postss">
+      { posts.slice(0).reverse().map(
         ({
           _id,
           userId,
@@ -66,6 +68,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
           />
         )
       )}
+      </div>
     </>
   );
 };
